@@ -115,12 +115,16 @@ const Register = () => {
               onChange={handleChange}
             >
               <option value="">Select Department</option>
-              <option value="Computer Science">Computer Science</option>
-              <option value="Electronics">Electronics</option>
-              <option value="Mechanical">Mechanical</option>
+              <option value="CSE">CSE</option>
+              <option value="ECE">ECE</option>
+              <option value="MECH">Mechanical</option>
               <option value="Civil">Civil</option>
-              <option value="Electrical">Electrical</option>
-              <option value="IT">Information Technology</option>
+              <option value="EEE">EEE</option>
+              <option value="AIDS">AI&DS</option>
+              <option value="IOT">IOT</option>
+              <option value="CYBER">Cyber Security</option>
+              <option value="AIML">AI&ML</option>
+              <option value="AIDS">AI&DS</option>
             </select>
           </div>
 
@@ -153,7 +157,6 @@ const Register = () => {
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
-                <option value="D">D</option>
               </select>
             </div>
           </div>
