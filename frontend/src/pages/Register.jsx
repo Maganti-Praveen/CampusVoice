@@ -88,7 +88,7 @@ const Register = () => {
               type="text"
               name="rollNumber"
               className="form-control"
-              placeholder="e.g., 21CS001"
+              placeholder="Enter Roll Number"
               value={formData.rollNumber}
               onChange={handleChange}
             />
