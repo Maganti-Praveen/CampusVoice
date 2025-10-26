@@ -172,24 +172,6 @@ npm run dev
 
 The frontend application will run on `http://localhost:3000`
 
-### Quick Start (Alternative)
-
-Run the provided PowerShell script to install both frontend and backend dependencies:
-```powershell
-.\quick-start.ps1
-```
-
-Then start both services in separate terminals:
-```powershell
-# Terminal 1
-cd backend
-npm run dev
-
-# Terminal 2
-cd frontend
-npm run dev
-```
-
 ## API Documentation
 
 ### Authentication Endpoints
@@ -279,17 +261,17 @@ npm run dev
 
 ## Deployment
 
-### Frontend Deployment (Vercel)
+### Frontend Deployment (netlify/render)
 
 1. Push code to GitHub repository
-2. Connect repository to Vercel
+2. Connect repository to netlify/render
 3. Configure build settings:
    - Build Command: `npm run build`
    - Output Directory: `dist`
    - Install Command: `npm install`
 4. Deploy
 
-### Backend Deployment (Render/Railway)
+### Backend Deployment (Render)
 
 1. Push code to GitHub repository
 2. Create new web service on Render
@@ -358,8 +340,8 @@ This project is developed for educational purposes and is available under the MI
 ---
 
 **Developed by:** Maganti Praveen Sai  
-**GitHub:** [github.com/praveensai](https://github.com/praveensai)  
-**LinkedIn:** [linkedin.com/in/praveensai](https://linkedin.com/in/praveensai)
+**GitHub:** [github.com/Maganti-Praveen](https://github.com/Maganti-Praveen)  
+**LinkedIn:** [linkedin.com/in/maganti-praveen-sai/](https://www.linkedin.com/in/maganti-praveen-sai/)
 
 **Default Management Credentials:**  
 Email: management@rcee.ac.in  

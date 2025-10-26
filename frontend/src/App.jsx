@@ -1,16 +1,12 @@
-// Main App Component with Routing
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// Context
 import { AuthProvider, useAuth } from './context/AuthContext';
 
-// Components
 import Navbar from './components/Navbar';
 
-// Pages
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
@@ -21,7 +17,6 @@ import FeedbackPolls from './pages/FeedbackPolls';
 import AdminComplaints from './pages/AdminComplaints';
 import AdminFeedback from './pages/AdminFeedback';
 
-// Protected Route Component
 const ProtectedRoute = ({ children, adminOnly = false }) => {
   const { user, loading } = useAuth();
 
@@ -48,7 +43,6 @@ const ProtectedRoute = ({ children, adminOnly = false }) => {
   return children;
 };
 
-// Public Route Component (redirect if logged in)
 const PublicRoute = ({ children }) => {
   const { user, loading } = useAuth();
 

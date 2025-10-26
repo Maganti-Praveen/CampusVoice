@@ -1,4 +1,3 @@
-// Student Dashboard Component
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -27,7 +26,6 @@ const Dashboard = () => {
       const response = await api.get('/complaints/my');
       const complaints = response.data;
       
-      // Calculate statistics
       setStats({
         totalComplaints: complaints.length,
         pending: complaints.filter(c => c.status === 'Pending').length,
@@ -35,7 +33,6 @@ const Dashboard = () => {
         resolved: complaints.filter(c => c.status === 'Resolved').length
       });
       
-      // Get 5 most recent complaints
       setRecentComplaints(complaints.slice(0, 5));
       
       setLoading(false);

@@ -1,8 +1,6 @@
-// Complaint Model
 const mongoose = require('mongoose');
 
 const complaintSchema = new mongoose.Schema({
-  // Complaint details
   title: {
     type: String,
     required: true,
@@ -18,14 +16,12 @@ const complaintSchema = new mongoose.Schema({
     required: true
   },
   
-  // Student who posted (identity hidden in public view)
   studentId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
   },
   
-  // Status management
   status: {
     type: String,
     enum: ['Pending', 'In Progress', 'Resolved'],
@@ -36,7 +32,6 @@ const complaintSchema = new mongoose.Schema({
     default: ''
   },
   
-  // Interactions
   agrees: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
@@ -63,7 +58,6 @@ const complaintSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Index for faster queries
 complaintSchema.index({ studentId: 1 });
 complaintSchema.index({ status: 1 });
 complaintSchema.index({ category: 1 });

@@ -1,4 +1,3 @@
-// Login Page Component
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -32,12 +31,10 @@ const Login = () => {
         userType
       });
 
-      // Save token and user data
       login(response.data.token, response.data.user);
       
       toast.success('Login successful!');
       
-      // Redirect based on role
       if (response.data.user.role === 'admin') {
         navigate('/admin/complaints');
       } else {

@@ -278,6 +278,6 @@ The project successfully demonstrates full-stack web development capabilities, d
 ---
 
 **Project Developed By:** Maganti Praveen Sai  
-**Contact:** [GitHub](https://github.com/praveensai) | [LinkedIn](https://linkedin.com/in/praveensai)  
+**Contact:** [GitHub](https://github.com/Maganti-Praveen) | [LinkedIn](https://www.linkedin.com/in/maganti-praveen-sai/) | [Email](mailto:magantipraveensai3@gmail.com)  
 **Institution:** RCEE College  
 **Management Credentials:** management@rcee.ac.in / 1234

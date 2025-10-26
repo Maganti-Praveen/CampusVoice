@@ -1,9 +1,7 @@
-/* Admin Pages Styles */
 .admin-container {
   padding: 30px 0;
 }
 
-/* Admin Statistics */
 .admin-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -37,7 +35,6 @@
   font-size: 14px;
 }
 
-/* Admin Complaint Card */
 .admin-complaint-card {
   padding: 25px;
 }
@@ -66,7 +63,6 @@
   font-size: 14px;
 }
 
-/* Admin Edit Form */
 .admin-edit-form {
   background: #f8f9fa;
   padding: 20px;
@@ -82,7 +78,6 @@
   flex-wrap: wrap;
 }
 
-/* Poll Details Modal */
 .poll-details {
   max-width: 800px;
   max-height: 90vh;
@@ -135,7 +130,6 @@
   margin-bottom: 10px;
 }
 
-/* Poll Status Indicator */
 .poll-status {
   text-align: center;
   padding: 10px 0;
@@ -157,7 +151,6 @@
   color: #dc3545;
 }
 
-/* Poll Comments */
 .poll-comments {
   margin-top: 20px;
 }
@@ -168,7 +161,6 @@
   margin-bottom: 15px;
 }
 
-/* Create Poll Form in Admin */
 .create-poll-form {
   margin-bottom: 30px;
 }
@@ -179,7 +171,6 @@
   margin-bottom: 20px;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .admin-stats {
     grid-template-columns: 1fr;
