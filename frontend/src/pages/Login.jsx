@@ -122,14 +122,6 @@ const Login = () => {
             <p>Don't have an account? <Link to="/register">Register here</Link></p>
           </div>
         )}
-        
-        {userType === 'admin' && (
-          <div className="auth-footer">
-            <p className="text-small text-muted">
-              Default Management: management@rcee.ac.in / 1234
-            </p>
-          </div>
-        )}
       </div>
     </div>
   );
