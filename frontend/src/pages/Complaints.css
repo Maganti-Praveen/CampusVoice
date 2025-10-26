@@ -1,0 +1,272 @@
+/* Complaints Pages Styles */
+.complaints-container {
+  padding: 30px 0;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  background: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.page-header h1 {
+  font-size: 28px;
+  color: #333;
+  margin: 0;
+}
+
+/* Filters Section */
+.filters-section {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-group label {
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.filter-group .form-control {
+  width: 200px;
+}
+
+.filter-info {
+  margin-left: auto;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Form Container */
+.form-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 40px;
+}
+
+.form-container h1 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.form-actions .btn {
+  flex: 1;
+}
+
+/* Complaints List */
+.complaints-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.complaint-card {
+  padding: 25px;
+}
+
+.complaint-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.complaint-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.complaint-date {
+  color: #999;
+  font-size: 13px;
+}
+
+.complaint-title {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.complaint-description {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Admin Response */
+.admin-response {
+  background: #e8f5e9;
+  border-left: 4px solid #28a745;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.admin-response strong {
+  display: block;
+  color: #28a745;
+  margin-bottom: 8px;
+}
+
+.admin-response p {
+  color: #333;
+  margin: 0;
+}
+
+/* Interactions */
+.complaint-interactions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding: 15px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 15px;
+}
+
+.interaction-btn {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.interaction-btn:hover {
+  background: #e9ecef;
+  transform: translateY(-2px);
+}
+
+.interaction-btn.active-agree {
+  background: #d4edda;
+  border-color: #28a745;
+  color: #28a745;
+}
+
+.interaction-btn.active-disagree {
+  background: #f8d7da;
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.comments-count {
+  color: #666;
+  font-weight: 500;
+}
+
+.complaint-stats {
+  display: flex;
+  gap: 20px;
+  padding: 15px 0;
+  border-top: 1px solid #eee;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Comments Section */
+.comments-section {
+  margin-bottom: 15px;
+}
+
+.comments-section h4 {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.comment-item {
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+.comment-item p {
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.comment-date {
+  color: #999;
+  font-size: 12px;
+}
+
+/* Add Comment */
+.add-comment {
+  display: flex;
+  gap: 10px;
+}
+
+.add-comment .form-control {
+  flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+  
+  .page-header .btn {
+    width: 100%;
+  }
+  
+  .filters-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filter-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filter-group .form-control {
+    width: 100%;
+  }
+  
+  .filter-info {
+    margin-left: 0;
+    text-align: center;
+  }
+  
+  .complaint-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .complaint-interactions {
+    flex-wrap: wrap;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+}

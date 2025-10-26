@@ -1,0 +1,210 @@
+/* Admin Pages Styles */
+.admin-container {
+  padding: 30px 0;
+}
+
+/* Admin Statistics */
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.admin-stat-card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.admin-stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.admin-stat-card h3 {
+  font-size: 36px;
+  color: #667eea;
+  margin-bottom: 10px;
+}
+
+.admin-stat-card p {
+  color: #666;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+/* Admin Complaint Card */
+.admin-complaint-card {
+  padding: 25px;
+}
+
+.student-info {
+  background: #e3f2fd;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border-left: 4px solid #2196f3;
+}
+
+.student-info strong {
+  display: block;
+  color: #1976d2;
+  margin-bottom: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.student-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  color: #333;
+  font-size: 14px;
+}
+
+/* Admin Edit Form */
+.admin-edit-form {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 15px;
+  border: 2px solid #667eea;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+/* Poll Details Modal */
+.poll-details {
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #eee;
+}
+
+.modal-header h2 {
+  font-size: 24px;
+  color: #333;
+  margin: 0;
+}
+
+.poll-details-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.details-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.detail-stat {
+  text-align: center;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.detail-stat h3 {
+  font-size: 40px;
+  color: #667eea;
+  margin-bottom: 10px;
+}
+
+.detail-stat p {
+  color: #666;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Poll Status Indicator */
+.poll-status {
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin: 15px 0;
+}
+
+.status-indicator {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.status-indicator.active {
+  color: #28a745;
+}
+
+.status-indicator.inactive {
+  color: #dc3545;
+}
+
+/* Poll Comments */
+.poll-comments {
+  margin-top: 20px;
+}
+
+.poll-comments h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Create Poll Form in Admin */
+.create-poll-form {
+  margin-bottom: 30px;
+}
+
+.create-poll-form h2 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .student-details {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .admin-actions {
+    flex-direction: column;
+  }
+  
+  .admin-actions .btn {
+    width: 100%;
+  }
+  
+  .modal-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+  
+  .modal-header .btn {
+    width: 100%;
+  }
+}
