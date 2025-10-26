@@ -1,20 +1,27 @@
+// Complaint Routes - CRUD and Interactions
 const express = require('express');
 const router = express.Router();
 const Complaint = require('../models/Complaint');
 const { authMiddleware, adminMiddleware } = require('../middleware/auth');
 
+// @route   POST /api/complaints
+// @desc    Create a new complaint (Student only)
+// @access  Private
 router.post('/', authMiddleware, async (req, res) => {
   try {
     const { title, description, category } = req.body;
     
+    // Validation
     if (!title || !description || !category) {
       return res.status(400).json({ message: 'Please provide all required fields' });
     }
     
+    // Only students can create complaints
     if (req.user.role !== 'student') {
       return res.status(403).json({ message: 'Only students can post complaints' });
     }
     
+    // Create complaint
     const complaint = new Complaint({
       title,
       description,
@@ -34,11 +41,15 @@ router.post('/', authMiddleware, async (req, res) => {
   }
 });
 
+// @route   GET /api/complaints
+// @desc    Get all complaints (public feed - always anonymous, no identity shown)
+// @access  Private
 router.get('/', authMiddleware, async (req, res) => {
   try {
     const complaints = await Complaint.find()
       .sort({ createdAt: -1 });
     
+    // Always hide student identity for everyone (students and management)
     const anonymousComplaints = complaints.map(complaint => ({
       _id: complaint._id,
       title: complaint.title,
@@ -51,6 +62,7 @@ router.get('/', authMiddleware, async (req, res) => {
       comments: complaint.comments,
       createdAt: complaint.createdAt,
       updatedAt: complaint.updatedAt,
+      // Only indicate if it's the logged-in student's complaint (for students only)
       isMyComplaint: req.user.role === 'student' && complaint.studentId.toString() === req.user.userId
     }));
     
@@ -61,6 +73,9 @@ router.get('/', authMiddleware, async (req, res) => {
   }
 });
 
+// @route   GET /api/complaints/my
+// @desc    Get complaints posted by logged-in student
+// @access  Private (Student only)
 router.get('/my', authMiddleware, async (req, res) => {
   try {
     if (req.user.role !== 'student') {
@@ -77,6 +92,9 @@ router.get('/my', authMiddleware, async (req, res) => {
   }
 });
 
+// @route   PUT /api/complaints/:id/status
+// @desc    Update complaint status and add management response (Management only)
+// @access  Private (Management only)
 router.put('/:id/status', authMiddleware, adminMiddleware, async (req, res) => {
   try {
     const { status, adminResponse } = req.body;
@@ -87,11 +105,13 @@ router.put('/:id/status', authMiddleware, adminMiddleware, async (req, res) => {
       return res.status(404).json({ message: 'Complaint not found' });
     }
     
+    // Update status and response
     if (status) complaint.status = status;
     if (adminResponse !== undefined) complaint.adminResponse = adminResponse;
     
     await complaint.save();
     
+    // Return without student identity
     res.json({
       message: 'Complaint updated successfully',
       complaint: {
@@ -114,6 +134,9 @@ router.put('/:id/status', authMiddleware, adminMiddleware, async (req, res) => {
   }
 });
 
+// @route   DELETE /api/complaints/:id
+// @desc    Delete a complaint (Management only)
+// @access  Private (Management only)
 router.delete('/:id', authMiddleware, adminMiddleware, async (req, res) => {
   try {
     const complaint = await Complaint.findByIdAndDelete(req.params.id);
@@ -129,6 +152,9 @@ router.delete('/:id', authMiddleware, adminMiddleware, async (req, res) => {
   }
 });
 
+// @route   POST /api/complaints/:id/agree
+// @desc    Agree with a complaint
+// @access  Private
 router.post('/:id/agree', authMiddleware, async (req, res) => {
   try {
     const complaint = await Complaint.findById(req.params.id);
@@ -139,8 +165,10 @@ router.post('/:id/agree', authMiddleware, async (req, res) => {
     
     const userId = req.user.userId;
     
+    // Remove from disagrees if present
     complaint.disagrees = complaint.disagrees.filter(id => id.toString() !== userId);
     
+    // Add to agrees if not already present
     if (!complaint.agrees.includes(userId)) {
       complaint.agrees.push(userId);
     }
@@ -158,6 +186,9 @@ router.post('/:id/agree', authMiddleware, async (req, res) => {
   }
 });
 
+// @route   POST /api/complaints/:id/disagree
+// @desc    Disagree with a complaint
+// @access  Private
 router.post('/:id/disagree', authMiddleware, async (req, res) => {
   try {
     const complaint = await Complaint.findById(req.params.id);
@@ -168,8 +199,10 @@ router.post('/:id/disagree', authMiddleware, async (req, res) => {
     
     const userId = req.user.userId;
     
+    // Remove from agrees if present
     complaint.agrees = complaint.agrees.filter(id => id.toString() !== userId);
     
+    // Add to disagrees if not already present
     if (!complaint.disagrees.includes(userId)) {
       complaint.disagrees.push(userId);
     }
@@ -187,6 +220,9 @@ router.post('/:id/disagree', authMiddleware, async (req, res) => {
   }
 });
 
+// @route   POST /api/complaints/:id/comment
+// @desc    Add a comment to a complaint
+// @access  Private
 router.post('/:id/comment', authMiddleware, async (req, res) => {
   try {
     const { text } = req.body;
@@ -201,6 +237,7 @@ router.post('/:id/comment', authMiddleware, async (req, res) => {
       return res.status(404).json({ message: 'Complaint not found' });
     }
     
+    // Add comment (anonymous for students in public view)
     complaint.comments.push({
       userId: req.user.userId,
       text: text.trim()

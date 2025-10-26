@@ -1,3 +1,4 @@
+// Register Page Component
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -30,6 +31,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
+    // Validation
     if (!formData.rollNumber || !formData.name || !formData.department || 
         !formData.year || !formData.section || !formData.password) {
       toast.error('Please fill in all fields');
@@ -58,6 +60,7 @@ const Register = () => {
         password: formData.password
       });
 
+      // Auto-login after registration
       login(response.data.token, response.data.user);
       
       toast.success('Registration successful!');

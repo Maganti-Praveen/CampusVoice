@@ -1,9 +1,11 @@
+// User Model - for both Students and Admins
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
+  // Common fields
   email: {
     type: String,
-    sparse: true,
+    sparse: true, // Allows null values for students who don't have email
     lowercase: true,
     trim: true
   },
@@ -22,9 +24,10 @@ const userSchema = new mongoose.Schema({
     trim: true
   },
   
+  // Student-specific fields
   rollNumber: {
     type: String,
-    sparse: true,
+    sparse: true, // Allows null for admin users
     uppercase: true,
     trim: true
   },
@@ -47,6 +50,7 @@ const userSchema = new mongoose.Schema({
   timestamps: true
 });
 
+// Index for faster queries
 userSchema.index({ rollNumber: 1 });
 userSchema.index({ email: 1 });
 
