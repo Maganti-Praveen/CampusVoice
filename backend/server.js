@@ -12,13 +12,13 @@ const feedbackRoutes = require('./routes/feedback');
 // Initialize Express app
 const app = express();
 
-// Middleware
-app.use(cors());
+// Middleware - Global CORS configuration for Render deployment
+app.use(cors({ origin: "*", credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGO_URL, { dbName: "CampusVoice" })
   .then(() => {
     console.log('✅ Connected to MongoDB Atlas');
     seedAdminAccount(); // Create default admin account
@@ -71,5 +71,5 @@ app.use((err, req, res, next) => {
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server is running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
